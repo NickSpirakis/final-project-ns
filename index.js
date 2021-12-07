@@ -69,6 +69,13 @@ function resetWordInput(){
     splitString = [];
     MatchingLetter = splitString;
     console.log(MatchingLetter);
+
+    document.getElementById("playerInput").value = "";
+    document.getElementById("letterOne").value = "";
+    document.getElementById("letterTwo").value = "";
+    document.getElementById("letterThree").value = "";
+    document.getElementById("letterFour").value = "";
+    document.getElementById("wrongGuess").value = ""
 }
 //------------------------------------------------------------------------------------------
 
@@ -97,39 +104,41 @@ function getLetter(){
         if (((pInput != "") || (pInput != " ")) && (pInput == MatchingLetter[0]) && (document.getElementById("letterOne").value == "") || (document.getElementById("letterOne").value == " "))
         {
             document.getElementById("letterOne").value = pInput;
-            scoreSet();
-            document.getElementById("playerInput").value = "";
+            scoreSet1();
+            //document.getElementById("playerInput").value = "";
         }
 
         if (((pInput != "") || (pInput != " ")) && (pInput == MatchingLetter[1]) && (document.getElementById("letterTwo").value == "") || (document.getElementById("letterTwo").value == " "))
         {
             document.getElementById("letterTwo").value = pInput;
-            scoreSet();
-            document.getElementById("playerInput").value = "";
+            scoreSet2();
+            //document.getElementById("playerInput").value = "";
         }
 
         if (((pInput != "") || (pInput != " ")) && (pInput == MatchingLetter[2]) && (document.getElementById("letterThree").value == "") || (document.getElementById("letterThree").value == " "))
         {
             document.getElementById("letterThree").value = pInput;
-            scoreSet();
-            document.getElementById("playerInput").value = "";
+            scoreSet3();
+            //document.getElementById("playerInput").value = "";
         }
 
         if (((pInput != "") || (pInput != " ")) && (pInput == MatchingLetter[3]) && (document.getElementById("letterFour").value == "") || (document.getElementById("letterFour").value == " "))
         {
             document.getElementById("letterFour").value = pInput;
-            scoreSet();
-            document.getElementById("playerInput").value = "";
+            scoreSet4();
+            //document.getElementById("playerInput").value = "";
         }
 
         //document.getElementById("score").value = score;
-
+        scoreWinAlert();
       }
  
 /*Wrong guesses go to new field */
 score = 0;
-function scoreSet(){
-    score = 0;
+function scoreSet1(){
+
+    var pInput = document.getElementById("playerInput").value
+
     if ( (document.getElementById("letterOne").value == "") || 
         (document.getElementById("letterOne").value == " ") || 
         (document.getElementById("letterOne").value == null))
@@ -137,10 +146,20 @@ function scoreSet(){
         var falseThing2 = false;
         //score -= 1;
     } else {
-        score += 3;
+        if(pInput == MatchingLetter[0])
+        {
+            score += 3;
+            document.getElementById("playerInput").value = "";
+        }else{
+            score -= 1;
+            document.getElementById("playerInput").value = "";
+        }
         document.getElementById("score").value = score;
     }
+}
 
+function scoreSet2(){
+    var pInput = document.getElementById("playerInput").value
    if ( (document.getElementById("letterTwo").value == "") || 
         (document.getElementById("letterTwo").value == " ") || 
         (document.getElementById("letterTwo").value == null))
@@ -148,11 +167,19 @@ function scoreSet(){
         var falseThing2 = false;
         //score -= 1;
     } else {
-        score += 3;
+        if(pInput == MatchingLetter[1])
+        {
+            score += 3;
+            document.getElementById("playerInput").value = "";
+        }else{
+            score -= 1;
+            document.getElementById("playerInput").value = "";
+        }
         document.getElementById("score").value = score;
     }
-
-
+}
+function scoreSet3(){
+    var pInput = document.getElementById("playerInput").value
     if ( (document.getElementById("letterThree").value == "") || 
         (document.getElementById("letterThree").value == " ") || 
         (document.getElementById("letterThree").value == null))
@@ -160,10 +187,19 @@ function scoreSet(){
         var falseThing2 = false;
         //score -=1;
     } else {
-        score += 3;
+        if(pInput == MatchingLetter[2])
+        {
+            score += 3;
+            document.getElementById("playerInput").value = "";
+        }else{
+            score -= 1;
+            document.getElementById("playerInput").value = "";
+        }
         document.getElementById("score").value = score;
     }
-
+}
+function scoreSet4(){
+    var pInput = document.getElementById("playerInput").value
     if ( (document.getElementById("letterFour").value == "") || 
         (document.getElementById("letterFour").value == " ") || 
         (document.getElementById("letterFour").value == null))
@@ -171,11 +207,53 @@ function scoreSet(){
         var falseThing2 = false;
         //score -=1;
     } else {
-        score += 3;
+        if(pInput == MatchingLetter[3])
+        {
+            score += 3;
+            document.getElementById("playerInput").value = "";
+        }else{
+            score -= 1;
+            document.getElementById("playerInput").value = "";
+        }
         document.getElementById("score").value = score;
     }
-
 }
+
+function scoreWinAlert(){
+
+    if( ((document.getElementById("letterOne").value == "") || 
+    (document.getElementById("letterOne").value == " ") || 
+    (document.getElementById("letterOne").value == null) ||
+    (document.getElementById("letterTwo").value == "") || 
+    (document.getElementById("letterTwo").value == " ") || 
+    (document.getElementById("letterTwo").value == null) ||
+    (document.getElementById("letterThree").value == "") || 
+    (document.getElementById("letterThree").value == " ") || 
+    (document.getElementById("letterThree").value == null) ||
+    (document.getElementById("letterFour").value == "") || 
+    (document.getElementById("letterFour").value == " ") || 
+    (document.getElementById("letterFour").value == null)
+    )){
+        var falseThing3 = false;
+    }else{
+
+        if (score == 12){
+            document.getElementById("hint").value = "";
+            document.getElementById("hint").value = "Congratulations, perfect score";
+            console.log("YOU WIN");
+        }
+        if (score < 12 && score > 6 || score == 6){
+            document.getElementById("hint").value = "";
+            document.getElementById("hint").value = "Result: Above Average Score";
+        }
+        if (score < 6){
+            document.getElementById("hint").value = "";
+            document.getElementById("hint").value = "Result: Below Average Score";
+        }
+
+    }
+}
+
 
 
 found = true;
@@ -211,10 +289,14 @@ function checkNotMatch(){
             document.getElementById("score").value = score;
             //console.log("score is: " + score);
         }
+
+        //true if section was commented out--
         //if (found == true){
             //score += 3;
             //console.log("score is: " + score);
         //}
+        //-----------------------------------
+
 
         found = true;
         
