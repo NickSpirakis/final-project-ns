@@ -37,12 +37,46 @@ function openModal() {
   };
   
 
+/*feature 4: Add your own word*/
+var splitString = [];
+var myword;
+
+function getWordInput(){
+    myword = document.getElementById("getWordInput").value;
+    console.log("Word is " + myword);
+
+}
+
+MatchingLetter = [];
+
+function setWordInput(){
+    getWordInput()
+
+    if(splitString.length == 0){
+        for (var i = 0; i<myword.length; i++){
+            splitString.push(myword.charAt(i));
+        }
+    }
+    //console.log(splitString);
+
+    MatchingLetter = splitString;
+    console.log(MatchingLetter);
+
+    document.getElementById("getWordInput").value = "";
+}
+
+function resetWordInput(){
+    splitString = [];
+    MatchingLetter = splitString;
+    console.log(MatchingLetter);
+}
+
 /*Feature 1: autofill the guessed letters*/ /*feature 2: score counter and win notification*/
 function callLetter(){
     getLetter();
   }
 
-MatchingLetter = ["D", "O", "G", "S"];
+//MatchingLetter = [];
 NotMatching = [];
 score = 0;
 
@@ -111,6 +145,3 @@ function hint(){
     }
     document.getElementById("hint").value = "There are " + vowelCounter + " vowels!"
 }
-
-/*feature 4: Add your own word*/
-
