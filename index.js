@@ -37,7 +37,7 @@ function openModal() {
   };
   
 
-/*feature 4: Add your own word*/
+/*feature 1: Add your own word ------------------------------------------------------*/
 var splitString = [];
 var myword;
 
@@ -70,8 +70,9 @@ function resetWordInput(){
     MatchingLetter = splitString;
     console.log(MatchingLetter);
 }
+//------------------------------------------------------------------------------------------
 
-/*Feature 1: autofill the guessed letters*/ /*feature 2: score counter and win notification*/
+/*Feature 2: autofill the guessed letters*/ /*feature 3: score counter and win notification*/
 function callLetter(){
     getLetter();
   }
@@ -118,30 +119,53 @@ function getLetter(){
  
 /*Wrong guesses go to new field */
 
+found = true;
 //wrong guesses show up here
 function checkNotMatch(){
     var pInput = document.getElementById("playerInput").value
-    if ((pInput != "")||(pInput != " ")||(pInput != null)){
+    console.log("pINPUT " + pInput)
+    if ((pInput == "")||(pInput == " ")||(pInput==null)){
+        var falseThing = false;
+    }else{
         for (i =0; i < MatchingLetter.length; i++){
-            if (pInput != MatchingLetter[i])
-                NotMatching.push(pInput); 
-                console.log("not matching" + NotMatching.value);
+            if (pInput != MatchingLetter[i]){
+                //NotMatching.push(pInput); 
+                //console.log("not matching" + NotMatching.value);
+                found = false;
+            } else{
+                found = true;
+                break;
+            }
         }
-    document.getElementById("wrongGuess").value = NotMatching;
+        if (found == false){
+            NotMatching.push(pInput); 
+            document.getElementById("wrongGuess").value = NotMatching;
+            console.log("not matching" + NotMatching.value);
+        }
+        found = true;
+        
+        //console.log("not matching" + NotMatching.value);
+
+        //document.getElementById("wrongGuess").value = NotMatching;
+
     }
 }
 
 
 
-/*feature 2: Score and win message*/
+/*feature 3: Score and win message*/
 
 
-/*feature 3: Hints*/
+/*feature 4: Hints*/
+
 function hint(){
     vowelCounter = 0;
     for (i =0; i < MatchingLetter.length; i++){
-        if ((MatchingLetter[i] == "A")||(MatchingLetter[i] == "E")||(MatchingLetter[i] == "I")||(MatchingLetter[i] == "O")||(MatchingLetter[i] == "U")  )
+        if ((MatchingLetter[i] == "A")||(MatchingLetter[i] == "E")||(MatchingLetter[i] == "I")||(MatchingLetter[i] == "O")||(MatchingLetter[i] == "U")|| 
+            (MatchingLetter[i] == "a")||(MatchingLetter[i] == "e")||(MatchingLetter[i] == "i")||(MatchingLetter[i] == "o")||(MatchingLetter[i] == "u"))
+            {
             vowelCounter +=1; 
+            }
     }
     document.getElementById("hint").value = "There are " + vowelCounter + " vowels!"
 }
