@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!--<meta name="viewport" content="width-device-width, initial-scale-1"/>-->
+        <title>Final - Flyer's Hangman Version 1</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+
+    <body>
+        <header>
+            <h1>Flyer's Hangman Version 1</h1>
+        </header>
+
+        <button onClick="openModal()" id="myBtn">Getting Started</button><br>
+        <div id="myModal" class="modal">
+            <div class="modal-content">
+              <span onClick="closeModal()" class="close">&times;</span>
+              <h2>Getting Started</h2>
+              <p>To Play Hangman you need to guess the correct letters of the word. </p>
+              <p>Click Close Modal button to close instructions,
+                 or click anywhere outside of the modal.</p>
+              <button onclick="closeModal()">Close Modal</button>
+            </div>
+      
+          </div>
+
+        <input id="playerInput" type="text" value="" size="3" onfocus="getLetter()" onblur="callLetter()">
+
+        <div id="myTable">
+            <table>
+                <tr>
+                    <td>Word:</td>
+                    <td> 
+                        <input id="letterOne" type="text" value="" size="3">
+                        <input id="letterTwo" type="text" value="" size="3">
+                        <input id="letterThree" type="text" value="" size="3">
+                        <input id="letterFour" type="text" value="" size="3">
+                    </td>
+
+                    <td>Wrong Guesses:</td>
+                    <td>
+                        <input id="wrongGuess" type="text" value="" size="75">
+                    </td>
+                </tr>
+            </table>
+
+
+            <table>
+                <tr>
+                    <td>Score:</td>
+                    <td> 
+                        <input id="score" type="text" value="" size="3">
+                    </td>
+                </tr>
+            </table>
+
+        </div>
+
+
+        <button onClick="hint()" id="myBtn2">Hint</button><br>
+        <input id="hint" type="text" value="" size="20">
+
+        <script src="index.js"></script>
+
+    </body>
+</html>
