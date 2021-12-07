@@ -37,7 +37,7 @@ function openModal() {
   };
   
 
-/*feature 1: Add your own word ------------------------------------------------------*/
+/*feature 1: Add/Clear your own word/Reset all ------------------------------------------------------*/
 var splitString = [];
 var myword;
 
@@ -75,11 +75,26 @@ function resetWordInput(){
     document.getElementById("letterTwo").value = "";
     document.getElementById("letterThree").value = "";
     document.getElementById("letterFour").value = "";
-    document.getElementById("wrongGuess").value = ""
+    document.getElementById("wrongGuess").value = "";
+}
+
+function resetAll(){
+    splitString = [];
+    MatchingLetter = splitString;
+    console.log(MatchingLetter);
+
+    document.getElementById("playerInput").value = "";
+    document.getElementById("letterOne").value = "";
+    document.getElementById("letterTwo").value = "";
+    document.getElementById("letterThree").value = "";
+    document.getElementById("letterFour").value = "";
+    document.getElementById("wrongGuess").value = "";
+    document.getElementById("score").value = 0;
+    score = 0;
 }
 //------------------------------------------------------------------------------------------
 
-/*Feature 2: autofill the guessed letters*/ /*feature 3: score counter and win notification*/
+/*Feature 2: autofill the guessed letters*/
 function callLetter(){
     getLetter();
   }
@@ -99,41 +114,35 @@ function getLetter(){
     checkNotMatch();
     console.log("Checking Not Match Function");
 
-    //console.log("function getLetter(pInput) { ... }");
 
         if (((pInput != "") || (pInput != " ")) && (pInput == MatchingLetter[0]) && (document.getElementById("letterOne").value == "") || (document.getElementById("letterOne").value == " "))
         {
             document.getElementById("letterOne").value = pInput;
             scoreSet1();
-            //document.getElementById("playerInput").value = "";
         }
 
         if (((pInput != "") || (pInput != " ")) && (pInput == MatchingLetter[1]) && (document.getElementById("letterTwo").value == "") || (document.getElementById("letterTwo").value == " "))
         {
             document.getElementById("letterTwo").value = pInput;
             scoreSet2();
-            //document.getElementById("playerInput").value = "";
         }
 
         if (((pInput != "") || (pInput != " ")) && (pInput == MatchingLetter[2]) && (document.getElementById("letterThree").value == "") || (document.getElementById("letterThree").value == " "))
         {
             document.getElementById("letterThree").value = pInput;
             scoreSet3();
-            //document.getElementById("playerInput").value = "";
         }
 
         if (((pInput != "") || (pInput != " ")) && (pInput == MatchingLetter[3]) && (document.getElementById("letterFour").value == "") || (document.getElementById("letterFour").value == " "))
         {
             document.getElementById("letterFour").value = pInput;
             scoreSet4();
-            //document.getElementById("playerInput").value = "";
         }
-
-        //document.getElementById("score").value = score;
         scoreWinAlert();
       }
  
-/*Wrong guesses go to new field */
+
+/*feature 3: score counter and win notification*/
 score = 0;
 function scoreSet1(){
 
@@ -219,6 +228,7 @@ function scoreSet4(){
     }
 }
 
+//win notification
 function scoreWinAlert(){
 
     if( ((document.getElementById("letterOne").value == "") || 
@@ -296,22 +306,9 @@ function checkNotMatch(){
             //console.log("score is: " + score);
         //}
         //-----------------------------------
-
-
         found = true;
-        
-        //console.log("not matching" + NotMatching.value);
-
-        //document.getElementById("wrongGuess").value = NotMatching;
-
     }
-
-
 }
-
-
-
-/*feature 3: Score and win message*/
 
 
 /*feature 4: Hints*/

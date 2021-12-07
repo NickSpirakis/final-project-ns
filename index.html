@@ -18,6 +18,19 @@
               <span onClick="closeModal()" class="close">&times;</span>
               <h2>Getting Started</h2>
               <p>To Play Hangman you need to guess the correct letters of the word. </p>
+              <p>Have a friend choose a word and enter it in the text field below "Type a Word".</p>
+              <p>Have your friend click "Set a Word" to confirm it, and have them pass you the computer.</p>
+              <p>Your goal is to use the text field below "Guess a Letter" to type in guessed letters.</p>
+              <p>You may only guess one letter at a time.</p>
+              <p>Incorrect guesses will appear in the "Wrong Guesses" field.</p>
+              <p>You gain 3 Points towards your score for getting a guess right, 
+                  but you loose 1 Point for every letter you guess wrong!</p>
+              <p> </p>
+              <p>If you feel stuck, use the "Hint" button!</p>
+              <p> </p>
+              <p>Press "Clear Current Word" to let someone choose a new word, while adding on to your previous scores.</p>
+              <p>Press "Reset All" to start over.</p>
+              <p> </p>
               <p>Click Close Modal button to close instructions,
                  or click anywhere outside of the modal.</p>
               <button onclick="closeModal()">Close Modal</button>
@@ -31,7 +44,8 @@
         <input id="getWordInput" type="text" value="" size="10" onfocus="getWordInput()">
         <button onclick="setWordInput()" id="setWordInput">Set a Word</button>
         <button onclick="resetWordInput()" id="resetWordInput">Clear Current Word</button>
-
+        <button onclick="resetAll()" id="resetAll">Reset All</button>
+        
         <!--Guess letters-->
         <p>Guess a letter</p>
         <input id="playerInput" type="text" value="" size="3" onfocus="getLetter()" onblur="callLetter()">
@@ -68,7 +82,7 @@
 
         <!--Hint-->
         <button onClick="hint()" id="myBtn2">Hint</button><br>
-        <input id="hint" type="text" value="" size="20">
+        <input id="hint" type="text" value="" size="35">
 
         <script src="index.js"></script>
 
