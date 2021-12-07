@@ -79,7 +79,8 @@ function callLetter(){
 
 //MatchingLetter = [];
 NotMatching = [];
-score = 0;
+
+scoreCheck = false;
 
 function getLetter(){
     //MatchingLetter = ["D", "O", "G", "S"];
@@ -94,32 +95,91 @@ function getLetter(){
     //console.log("function getLetter(pInput) { ... }");
 
         if (((pInput != "") || (pInput != " ")) && (pInput == MatchingLetter[0]) && (document.getElementById("letterOne").value == "") || (document.getElementById("letterOne").value == " "))
+        {
             document.getElementById("letterOne").value = pInput;
-            //score += 1;
-            document.getElementById("playerInput").value = ""
-        
+            scoreSet();
+            document.getElementById("playerInput").value = "";
+        }
+
         if (((pInput != "") || (pInput != " ")) && (pInput == MatchingLetter[1]) && (document.getElementById("letterTwo").value == "") || (document.getElementById("letterTwo").value == " "))
+        {
             document.getElementById("letterTwo").value = pInput;
-            //score += 1;
-            document.getElementById("playerInput").value = ""
+            scoreSet();
+            document.getElementById("playerInput").value = "";
+        }
 
         if (((pInput != "") || (pInput != " ")) && (pInput == MatchingLetter[2]) && (document.getElementById("letterThree").value == "") || (document.getElementById("letterThree").value == " "))
+        {
             document.getElementById("letterThree").value = pInput;
-            //score += 1;
-            document.getElementById("playerInput").value = ""
+            scoreSet();
+            document.getElementById("playerInput").value = "";
+        }
 
         if (((pInput != "") || (pInput != " ")) && (pInput == MatchingLetter[3]) && (document.getElementById("letterFour").value == "") || (document.getElementById("letterFour").value == " "))
+        {
             document.getElementById("letterFour").value = pInput;
-            //score += 1;
-            document.getElementById("playerInput").value = ""
-        
+            scoreSet();
+            document.getElementById("playerInput").value = "";
+        }
+
         //document.getElementById("score").value = score;
 
       }
  
 /*Wrong guesses go to new field */
+score = 0;
+function scoreSet(){
+    score = 0;
+    if ( (document.getElementById("letterOne").value == "") || 
+        (document.getElementById("letterOne").value == " ") || 
+        (document.getElementById("letterOne").value == null))
+    {
+        var falseThing2 = false;
+        //score -= 1;
+    } else {
+        score += 3;
+        document.getElementById("score").value = score;
+    }
+
+   if ( (document.getElementById("letterTwo").value == "") || 
+        (document.getElementById("letterTwo").value == " ") || 
+        (document.getElementById("letterTwo").value == null))
+    {
+        var falseThing2 = false;
+        //score -= 1;
+    } else {
+        score += 3;
+        document.getElementById("score").value = score;
+    }
+
+
+    if ( (document.getElementById("letterThree").value == "") || 
+        (document.getElementById("letterThree").value == " ") || 
+        (document.getElementById("letterThree").value == null))
+    {
+        var falseThing2 = false;
+        //score -=1;
+    } else {
+        score += 3;
+        document.getElementById("score").value = score;
+    }
+
+    if ( (document.getElementById("letterFour").value == "") || 
+        (document.getElementById("letterFour").value == " ") || 
+        (document.getElementById("letterFour").value == null))
+    {
+        var falseThing2 = false;
+        //score -=1;
+    } else {
+        score += 3;
+        document.getElementById("score").value = score;
+    }
+
+}
+
 
 found = true;
+
 //wrong guesses show up here
 function checkNotMatch(){
     var pInput = document.getElementById("playerInput").value
@@ -132,8 +192,12 @@ function checkNotMatch(){
                 //NotMatching.push(pInput); 
                 //console.log("not matching" + NotMatching.value);
                 found = false;
+                //score -= 1;
+                //console.log("score is: " + score);
             } else{
                 found = true;
+                //score += 5;
+                //console.log("score is: " + score);
                 break;
             }
         }
@@ -141,7 +205,17 @@ function checkNotMatch(){
             NotMatching.push(pInput); 
             document.getElementById("wrongGuess").value = NotMatching;
             console.log("not matching" + NotMatching.value);
+            score -= 1;
+
+            document.getElementById("playerInput").value = "";
+            document.getElementById("score").value = score;
+            //console.log("score is: " + score);
         }
+        //if (found == true){
+            //score += 3;
+            //console.log("score is: " + score);
+        //}
+
         found = true;
         
         //console.log("not matching" + NotMatching.value);
@@ -149,6 +223,8 @@ function checkNotMatch(){
         //document.getElementById("wrongGuess").value = NotMatching;
 
     }
+
+
 }
 
 
