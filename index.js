@@ -37,7 +37,7 @@ function openModal() {
   };
   
 
-/*feature 1: Add/Clear your own word/Reset all ------------------------------------------------------*/
+/*feature 1: Add/Clear your own word/Reset all --------------------------------------------------*/
 var splitString = [];
 var myword;
 
@@ -115,25 +115,33 @@ function getLetter(){
     console.log("Checking Not Match Function");
 
 
-        if (((pInput != "") || (pInput != " ")) && (pInput == MatchingLetter[0]) && (document.getElementById("letterOne").value == "") || (document.getElementById("letterOne").value == " "))
+        if (((pInput != "") || (pInput != " ")) && (pInput == MatchingLetter[0]) && 
+        (document.getElementById("letterOne").value == "") || 
+        (document.getElementById("letterOne").value == " "))
         {
             document.getElementById("letterOne").value = pInput;
             scoreSet1();
         }
 
-        if (((pInput != "") || (pInput != " ")) && (pInput == MatchingLetter[1]) && (document.getElementById("letterTwo").value == "") || (document.getElementById("letterTwo").value == " "))
+        if (((pInput != "") || (pInput != " ")) && (pInput == MatchingLetter[1]) && 
+        (document.getElementById("letterTwo").value == "") || 
+        (document.getElementById("letterTwo").value == " "))
         {
             document.getElementById("letterTwo").value = pInput;
             scoreSet2();
         }
 
-        if (((pInput != "") || (pInput != " ")) && (pInput == MatchingLetter[2]) && (document.getElementById("letterThree").value == "") || (document.getElementById("letterThree").value == " "))
+        if (((pInput != "") || (pInput != " ")) && (pInput == MatchingLetter[2]) && 
+        (document.getElementById("letterThree").value == "") || 
+        (document.getElementById("letterThree").value == " "))
         {
             document.getElementById("letterThree").value = pInput;
             scoreSet3();
         }
 
-        if (((pInput != "") || (pInput != " ")) && (pInput == MatchingLetter[3]) && (document.getElementById("letterFour").value == "") || (document.getElementById("letterFour").value == " "))
+        if (((pInput != "") || (pInput != " ")) && (pInput == MatchingLetter[3]) && 
+        (document.getElementById("letterFour").value == "") || 
+        (document.getElementById("letterFour").value == " "))
         {
             document.getElementById("letterFour").value = pInput;
             scoreSet4();
@@ -316,8 +324,10 @@ function checkNotMatch(){
 function hint(){
     vowelCounter = 0;
     for (i =0; i < MatchingLetter.length; i++){
-        if ((MatchingLetter[i] == "A")||(MatchingLetter[i] == "E")||(MatchingLetter[i] == "I")||(MatchingLetter[i] == "O")||(MatchingLetter[i] == "U")|| 
-            (MatchingLetter[i] == "a")||(MatchingLetter[i] == "e")||(MatchingLetter[i] == "i")||(MatchingLetter[i] == "o")||(MatchingLetter[i] == "u"))
+        if ((MatchingLetter[i] == "A")||(MatchingLetter[i] == "E")||(MatchingLetter[i] == "I")||
+            (MatchingLetter[i] == "O")||(MatchingLetter[i] == "U")|| 
+            (MatchingLetter[i] == "a")||(MatchingLetter[i] == "e")||(MatchingLetter[i] == "i")||
+            (MatchingLetter[i] == "o")||(MatchingLetter[i] == "u"))
             {
             vowelCounter +=1; 
             }
