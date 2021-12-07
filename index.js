@@ -322,5 +322,5 @@ function hint(){
             vowelCounter +=1; 
             }
     }
-    document.getElementById("hint").value = "There are " + vowelCounter + " vowels!"
+    document.getElementById("hint").value = "There is(are) " + vowelCounter + " vowel(s)!"
 }

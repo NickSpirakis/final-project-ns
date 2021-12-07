@@ -33,3 +33,34 @@
     text-decoration: none;
     cursor: pointer;
   }
+
+
+  button {
+    background-color: #d62a41;
+    color: #FFF;
+    border: none;
+    padding: 5px 5px;
+    font-size: 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    outline: none;
+    box-shadow: 2px 2px 0 #f7d1ce;
+    margin-bottom: 5px;
+    margin-left: 5px;
+    transition: opacity .4s ease-out, transform .4s ease-out, visibility .4s ease-out;
+    position: relative;
+    top: -10px;
+    margin-top: 10px;
+  }
+  
+  button:hover {
+    background-color: #c17689;
+  }
+  
+  button:active {
+    background-color: #e0e0e0;
+    box-shadow: none;
+    position: relative;
+    top: -8px;
+    left: 2px;
+  }
