@@ -1,5 +1,3 @@
-
-
 <?php
 
     $tauntMessage = array(
@@ -22,11 +20,8 @@
         "-1" => "Hey! Wrong way pal!",
         "-2" => "How low can you go?",
         "-3" => "Better luck next guess",
-        "-4" => "Give Up?"
+        "-4" => "Give Up?",
         "-5" => "Have you considered pursuing a degree in Total Failure?"
-        "-6" => "Have you considered pursuing a degree in Total Failure?"
-        "-7" => "Have you considered pursuing a degree in Total Failure?"
-        
     );
     
     $score = $_GET["score"];
