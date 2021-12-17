@@ -34,7 +34,7 @@ server-side features that are greater or equal in complexity than
 features we delivered in previous applications.
 
 //1 - set a high score/view high score
-//2 - 
+//2 - Taunt bot
 
 ------------------------------------------------------------------------------
 
@@ -153,7 +153,7 @@ function saveScorePHP() {
 
 //taunter
 
-/*
+
 function callTaunt(){
     getTaunt();
   }
@@ -169,7 +169,7 @@ function callTaunt(){
     // Register the embedded handler function
     xhr.onreadystatechange = function() {
   
-      //if (xhr.readyState == 4 && xhr.status == 200) {
+      if (xhr.readyState == 4 && xhr.status == 200) {
         var result = xhr.responseText;
         console.log("result:"+result);
   
@@ -185,13 +185,13 @@ function callTaunt(){
         //if (document.getElementById("stateID").value == "")
             //document.getElementById("stateID").value = place[1];
         }
-      //}
+      }
       xhr.open("GET", "taunt-bot.php?score=" + score);
       xhr.send(null);
   }
 
- */
-
+ 
+/*
   function callTaunt(){
     getTaunt();
   }
@@ -232,6 +232,7 @@ function callTaunt(){
 
 
   }
+  */
 
 function keyPressed() {
     console.log('keyPressed()');
