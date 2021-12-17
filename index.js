@@ -175,7 +175,7 @@ function callTaunt(){
         var answer = result.split(', ');
         console.log("answer:"+answer);
   
-        var scorez = place[0];
+        var scorez = answer[0];
         console.log("scorez:"+scorez);
         //console.log("city = "+citycity);
   
