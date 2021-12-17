@@ -40,6 +40,9 @@ features we delivered in previous applications.
 
 */
 
+function doesNothingButUpdateAzure() {
+    console.log("Yo what up Azure");
+}
 
 /*Requirement 1: Help System*/
 function openModal() {
