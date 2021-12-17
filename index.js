@@ -52,10 +52,11 @@ function doesNothingButUpdateAzure() {
 
 //load/save php -----------------------------------------------------------
 
-scoreArray = [];
-currentScoreIndex = -1;
+var scoreArray = [];
+var currentScoreIndex = -1;
 
 function addScore() {
+    console.log("addScore() running");
     var newScore = {
         playerName  :   document.getElementById("playerNameID").value,
         playerScore :   document.getElementById("playerScoreID").value
@@ -63,6 +64,7 @@ function addScore() {
     scoreArray.push(newScore);
     currentScoreIndex = currentScoreIndex + 1;
     console.log(scoreArray);
+    viewCurrentScore();
 }
 
 
@@ -91,13 +93,13 @@ function saveScorePHP() {
     xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             console.log('Response: ' + this.responseText);
-            //setStatus(this.responseText)
+            setStatus(this.responseText)
         }
     };
     xmlhttp.open("POST", "save-score.php", true);
     xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xmlhttp.send("score=" + JSON.stringify(scoreArray));  
-    console.log("Score List");
+    console.log("Score List after save");
     console.log(scoreArray);
   }
   
