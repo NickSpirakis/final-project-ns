@@ -98,7 +98,7 @@ function saveScorePHP() {
     };
     xmlhttp.open("POST", "save-score.php", true);
     xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xmlhttp.send("score=" + JSON.stringify(scoreArray));  
+    xmlhttp.send("scores=" + JSON.stringify(scoreArray));  
     console.log("Score List after save");
     console.log(scoreArray);
   }
@@ -115,14 +115,16 @@ function saveScorePHP() {
         if (this.readyState == 4 && this.status == 200) {
             scoreArray = JSON.parse(this.responseText);
             setStatus("Loaded scores (" + scoreArray.length + ")");
-  
             currentScoreIndex = 0;
+
             viewCurrentScore()
         }
     };
   
     xmlhttp.open("GET", "load-score.php", true);
-    xmlhttp.send();   
+    xmlhttp.responseType="text";
+    xmlhttp.send();
+    console.log(scoreArray);   
   }
   
   function setStatus(status) {
