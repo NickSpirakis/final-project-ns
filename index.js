@@ -101,7 +101,7 @@ function saveScorePHP() {
     console.log(scoreArray);
   }
   
-  
+
   function loadScorePHP() {
     console.log("loadScorePHP()");
   
@@ -112,7 +112,7 @@ function saveScorePHP() {
     xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             scoreArray = JSON.parse(this.responseText);
-            //setStatus("Loaded scores (" + scoreArray.length + ")");
+            setStatus("Loaded scores (" + scoreArray.length + ")");
   
             currentScoreIndex = 0;
             viewCurrentScore()
@@ -123,7 +123,10 @@ function saveScorePHP() {
     xmlhttp.send();   
   }
   
-
+  function setStatus(status) {
+    document.getElementById("statusID").innerHTML = status;    
+  }
+  
   
 
   function previous() {
