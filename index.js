@@ -168,7 +168,7 @@ function callTaunt(){
     // Register the embedded handler function
     xhr.onreadystatechange = function() {
   
-      if (xhr.readyState == 4 && xhr.status == 200) {
+      //if (xhr.readyState == 4 && xhr.status == 200) {
         var result = xhr.responseText;
         console.log("result:"+result);
   
@@ -180,11 +180,11 @@ function callTaunt(){
         //console.log("city = "+citycity);
   
         if ((document.getElementById("tauntField").value == "") || (document.getElementById("tauntField").value == " "))
-            document.getElementById("tauntField").value = scorez;
+            document.getElementById("tauntField").value = answer[1];
         //if (document.getElementById("stateID").value == "")
             //document.getElementById("stateID").value = place[1];
         }
-      }
+      //}
       xhr.open("GET", "taunt-bot.php?score=" + score);
       xhr.send(null);
   }
