@@ -153,6 +153,7 @@ function saveScorePHP() {
 
 //taunter
 
+/*
 function callTaunt(){
     getTaunt();
   }
@@ -189,11 +190,48 @@ function callTaunt(){
       xhr.send(null);
   }
 
+ */
+
+  function callTaunt(){
+    getTaunt();
+  }
+  
+  
+  function getTaunt(){
+    var zip = document.getElementById("playerScoreID").value
+    console.log("zip:"+zip);
+  
+    console.log("function getPlace(zip) { ... }");
+    var xhr = new XMLHttpRequest();
+  
+    // Register the embedded handler function
+    xhr.onreadystatechange = function() {
+  
+      if (xhr.readyState == 4 && xhr.status == 200) {
+        var result = xhr.responseText;
+        console.log("result:"+result);
+  
+        var place = result.split(', ');
+        
+  
+        var citycity = place[0];
+  
+        console.log("city = "+citycity);
+  
+        //if ((document.getElementById("cityID").value == "") || (document.getElementById("cityID").value == " "))
+            //document.getElementById("cityID").value = citycity;
+        //if (document.getElementById("stateID").value == "")
+            //document.getElementById("stateID").value = place[1];
+        //}
+        if ((document.getElementById("tauntField").value == "") || (document.getElementById("tauntField").value == " "))
+            document.getElementById("tauntField").value = citycity;
+        }
+      xhr.open("GET", "taunt-bot.php?zip=" + zip);
+      xhr.send(null);
+    }
 
 
-
-
-
+  }
 
 
 /*------------------------------------------------------------*/
