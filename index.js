@@ -159,7 +159,7 @@ function callTaunt(){
   
   
   function getTaunt(){
-    var score = document.getElementById("score").value
+    var score = document.getElementById("playerScoreID").value
     console.log("score:"+score);
   
     console.log("function getTaunt(score) { ... }");
