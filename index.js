@@ -179,8 +179,8 @@ function callTaunt(){
         console.log("scorez:"+scorez);
         //console.log("city = "+citycity);
   
-        //if ((document.getElementById("cityID").value == "") || (document.getElementById("cityID").value == " "))
-            //document.getElementById("cityID").value = citycity;
+        if ((document.getElementById("tauntField").value == "") || (document.getElementById("tauntField").value == " "))
+            document.getElementById("tauntField").value = scorez;
         //if (document.getElementById("stateID").value == "")
             //document.getElementById("stateID").value = place[1];
         }
