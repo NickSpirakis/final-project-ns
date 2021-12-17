@@ -33,8 +33,8 @@ Enhance your application so that it implements at least two (2)
 server-side features that are greater or equal in complexity than 
 features we delivered in previous applications.
 
-//1 - set a high score
-//2 - view all high score
+//1 - set a high score/view high score
+//2 - 
 
 ------------------------------------------------------------------------------
 
@@ -149,6 +149,53 @@ function saveScorePHP() {
     viewCurrentScore();
     console.log(scoreArray);
   }
+
+
+//taunter
+
+function callTaunt(){
+    getTaunt();
+  }
+  
+  
+  function getTaunt(){
+    var score = document.getElementById("score").value
+    console.log("score:"+score);
+  
+    console.log("function getTaunt(score) { ... }");
+    var xhr = new XMLHttpRequest();
+  
+    // Register the embedded handler function
+    xhr.onreadystatechange = function() {
+  
+      if (xhr.readyState == 4 && xhr.status == 200) {
+        var result = xhr.responseText;
+        console.log("result:"+result);
+  
+        //var place = result.split(', ');
+        
+  
+        //var citycity = place[0];
+  
+        //console.log("city = "+citycity);
+  
+        //if ((document.getElementById("cityID").value == "") || (document.getElementById("cityID").value == " "))
+            //document.getElementById("cityID").value = citycity;
+        //if (document.getElementById("stateID").value == "")
+            //document.getElementById("stateID").value = place[1];
+        }
+      }
+      xhr.open("GET", "taunt-bot.php?score=" + score);
+      xhr.send(null);
+  }
+
+
+
+
+
+
+
+
 /*------------------------------------------------------------*/
 
 
