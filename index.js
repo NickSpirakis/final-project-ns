@@ -172,11 +172,11 @@ function callTaunt(){
         var result = xhr.responseText;
         console.log("result:"+result);
   
-        //var place = result.split(', ');
-        
+        var answer = result.split(', ');
+        console.log("answer:"+answer);
   
-        //var citycity = place[0];
-  
+        var scorez = place[0];
+        console.log("scorez:"+scorez);
         //console.log("city = "+citycity);
   
         //if ((document.getElementById("cityID").value == "") || (document.getElementById("cityID").value == " "))
