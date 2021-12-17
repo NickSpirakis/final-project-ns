@@ -44,6 +44,109 @@ function doesNothingButUpdateAzure() {
     console.log("Yo what up Azure");
 }
 
+
+
+
+//---requirement 4 ------------------------------------------------------
+
+
+//load/save php -----------------------------------------------------------
+
+scoreArray = [];
+currentScoreIndex = -1;
+
+function addScore() {
+    var newScore = {
+        playerName  :   document.getElementById("playerNameID").value,
+        playerScore :   document.getElementById("playerScoreID").value
+    }
+    scoreArray.push(newScore);
+    currentScoreIndex = currentScoreIndex + 1;
+    console.log(scoreArray);
+}
+
+
+
+function viewCurrentScore() {
+
+    currentScore = scoreArray[currentScoreIndex];
+    console.log(currentScore);
+
+    if (document.getElementById("playerNameID").value){
+      document.getElementById("playerNameID").value = currentScore.playerName;  
+    } 
+    if (document.getElementById("playerScoreID").value){
+      document.getElementById("playerScoreID").value = currentScore.playerScore; 
+    }
+  
+  }
+
+
+
+
+
+function saveScorePHP() {
+    console.log("saveScorePHP()");
+    xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            console.log('Response: ' + this.responseText);
+            //setStatus(this.responseText)
+        }
+    };
+    xmlhttp.open("POST", "save-score.php", true);
+    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xmlhttp.send("score=" + JSON.stringify(scoreArray));  
+    console.log("Score List");
+    console.log(scoreArray);
+  }
+  
+  
+  function loadScorePHP() {
+    console.log("loadScorePHP()");
+  
+    // Clear the current scores.
+    scoreArray.length = 0;
+  
+    xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            scoreArray = JSON.parse(this.responseText);
+            //setStatus("Loaded scores (" + scoreArray.length + ")");
+  
+            currentScoreIndex = 0;
+            viewCurrentScore()
+        }
+    };
+  
+    xmlhttp.open("GET", "load-score.php", true);
+    xmlhttp.send();   
+  }
+  
+
+  
+
+  function previous() {
+    if (currentScoreIndex > 0) {
+        currentScoreIndex--;
+    }
+    currentScore = scoreArray[currentScoreIndex];
+    viewCurrentScore();
+  }
+  
+  function next() {
+    if (currentScoreIndex < (scoreArray.length-1)) {
+        currentScoreIndex++;
+    }
+    currentScore = scoreArray[currentScoreIndex];
+    viewCurrentScore();
+    console.log(scoreArray);
+  }
+/*------------------------------------------------------------*/
+
+
+
+
 /*Requirement 1: Help System*/
 function openModal() {
     var modal = document.getElementById('myModal');

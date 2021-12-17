@@ -84,10 +84,24 @@
             </table>
 
         </div>
-
+        
         <!--Hint-->
         <button onClick="hint()" id="myBtn2">Hint</button><br>
         <input id="hint" type="text" value="" size="35">
+
+
+        <!--Score-->
+        <p>Add to Leaderboards</p>
+        <input id="playerNameID" type="text" value="Enter Name" size="30">
+        <input id="playerScoreID" type="text" value="Score" size="5">
+
+        <button type="button" onclick="addScore()">Add Your Score</button>
+        <button type="button" onclick="saveScorePHP()">Save Score</button>
+        <button type="button" onclick="loadScorePHP()">Load Score</button>
+
+        <button type="button" onclick="previous()">Previous</button>
+        <button type="button" onclick="next()">Next</button>
+
 
         <script src="index.js"></script>
 
