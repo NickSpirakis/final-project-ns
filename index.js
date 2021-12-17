@@ -1535,11 +1535,11 @@ var wordsZ = ["ZACK", "ZAGS", "ZANY", "ZAPS", "ZARF", "ZARI", "ZATI", "ZEAL", "Z
 
 
 
+//this is a list of all words
 
 
 
-/*
-var validWordList = ["AAHS", "AALS", "ABAC", "ABAS", "ABBA", "ABBE", "ABBS", "ABED", "ABET", 
+var validWordLists = ["AAHS", "AALS", "ABAC", "ABAS", "ABBA", "ABBE", "ABBS", "ABED", "ABET", 
 "ABID", "ABLE", "ABLY", "ABOS", "ABRI", "ABUT", "ABYE", "ABYS", "ACAI", "ACCA", "ACED", "ACER", 
 "ACES", "ACHE", "ACHY", "ACID", "ACME", "ACNE", "ACRE", "ACTA", "ACTS", "ACYL", "ADAW", "ADDS", 
 "ADDY", "ADIT", "ADOS", "ADRY", "ADZE", "AEON", "AERO", "AERY", "AESC", "AFAR", "AFFY", "AFRO", 
@@ -2031,4 +2031,3 @@ var validWordList = ["AAHS", "AALS", "ABAC", "ABAS", "ABBA", "ABBE", "ABBS", "AB
 "ZILA", "ZILL", "ZIMB", "ZINC", "ZINE", "ZING", "ZINS", "ZIPS", "ZITE", "ZITI", "ZITS", "ZIZZ", 
 "ZOBO", "ZOBU", "ZOEA", "ZOIC", "ZOLS", "ZONA", "ZONE", "ZONK", "ZOOM", "ZOON", "ZOOS", "ZOOT", 
 "ZORI", "ZOUK", "ZULU", "ZUPA", "ZURF", "ZYGA", "ZYME", "ZZZS" ]
-*/
