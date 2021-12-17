@@ -93,7 +93,7 @@
         <!--Score-->
         <p>Add to Leaderboards</p>
         <input id="playerNameID" type="text" value="Enter Name" size="30">
-        <input id="playerScoreID" type="text" value="" size="5" onfocus="getTaunt()" onblur="callTaunt()">
+        <input id="playerScoreID" type="text" value="" size="6" onfocus="getTaunt()" onblur="callTaunt()">
 
         <button type="button" onclick="addScore()">Add Your Score</button>
         <button type="button" onclick="saveScorePHP()">Save Score</button>
@@ -103,7 +103,7 @@
         <button type="button" onclick="next()">Next</button>
 
         <p>Taunts</p>
-        <input id="tauntField" type="text" value="" size="20">
+        <input id="tauntField" type="text" value="" size="20" onkeypress="keyPressed()">
         <!------STATUS NEW------>
         <p id="statusID"></p>
         <br><br><hr>

@@ -233,6 +233,9 @@ function callTaunt(){
 
   }
 
+function keyPressed() {
+    console.log('keyPressed()');
+}   
 
 /*------------------------------------------------------------*/
 
